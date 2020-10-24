@@ -2,6 +2,7 @@ window.addEventListener("load", function () {
 document.querySelector("#ziehstapel")?.addEventListener("click", createCard);
 document.querySelector("#ziehstapel")?.addEventListener("click", draw);
 document.querySelector("#ablagestapel")?.addEventListener("click", createFirstCard);
+document.querySelector(div.getAttribute("handkarte")?.addEventListener("click", playCard);
 });
 
 let color: string[] = ["blue", "red", "yellow", "green"];
@@ -31,8 +32,11 @@ let neuekarte: Karte = {
 function createCard (): void {
     let div: HTMLDivElement = document.createElement("div");
     document.body.appendChild(div);
-    div.innerText = "" + digit[Math.floor(Math.random() * 10)];     //https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor         
-    div.style.backgroundColor = color[Math.floor(Math.random() * 4)];
+    div.setAttribute("color", color[Math.floor(Math.random() * 4)]);            //https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+    div.setAttribute("numero", "" + digit[Math.floor(Math.random() * 10)]);
+    div.setAttribute("name", "handkarte"); 
+    div.innerText = div.getAttribute("numero");             
+    div.style.backgroundColor = div.getAttribute("color");
     div.style.fontSize = "200%";
     div.style.width = "150px"; 
     div.style.height = "225px";
@@ -40,40 +44,33 @@ function createCard (): void {
     div.style.marginTop = "2%";
     div.style.position = "relative";
     div.style.float = "right";
-}    
+}  
 
 
-function createFirstCard (karte: string[]): void {
+function createFirstCard (): void {
     let div: HTMLDivElement = document.createElement("div");
     document.body.appendChild(div);
-    div.innerText = "" + digit[Math.floor(Math.random() * 10)];     //https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor         
-    div.style.backgroundColor = color[Math.floor(Math.random() * 4)];
-    div.setAttribute("color",color[Math.floor(Math.random() * 4)]) ;
+    div.setAttribute("color", color[Math.floor(Math.random() * 4)]);            //https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+    div.setAttribute("numero", "" + digit[Math.floor(Math.random() * 10)]);
+    div.setAttribute("name", "ablage"); 
+    div.innerText = div.getAttribute("numero");             
+    div.style.backgroundColor = div.getAttribute("color");
     div.style.fontSize = "200%";
-    div.style.width = "300px";
-    div.style.height = "225px";
-    div.style.marginLeft = "30px";
-    div.style.marginTop = "-19.8%";
+    div.style.width = "200px"; 
+    div.style.height = "300px";
+    div.style.marginLeft = "30.1%";
+    div.style.marginTop = "-19.90%";
     div.style.position = "static";
-    switch (digit) {
-        case 0:
-        digit = 0;
+}    
 
-        break;
-    
-        default:
-            break;
-    }
-    
-}
 /* 
 let turnPc: boolean = false;
 let turnPlayer:boolean = true; */
 
 
 function draw (): void {
-   createCard;
-   let button: HTMLButtonElement = document.createElement("button");
+   createCard;                                                                      // Karte ziehen
+   /* let button: HTMLButtonElement = document.createElement("button");             //PASS BUTTON erstellen
    document.body.appendChild(button);
    button.style.backgroundColor = color[Math.floor(Math.random() * 4)];
    button.style.fontSize = "200%";
@@ -81,7 +78,16 @@ function draw (): void {
    button.style.height = "50px";
    button.style.backgroundColor = "purple";
    button.style.position = "fixed";
-   button.style.float = "right";
+   button.style.float = "right"; */
    
       
 }
+
+function playCard(): void {
+        if (div.getAttribute("handkarte.farbe") == div.getAttribute("ablage.farbe")) {
+            console.log("Vergleich funktioniert, Farbe gleich");
+        } else {
+            console.log("Vergleich funktioniert, Farbe");
+}
+
+} 

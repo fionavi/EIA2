@@ -62,7 +62,8 @@ font-size: x-large;
     float: none;
     margin-top: -19.80%;
     margin-left: 30%;
-    background-color: rgb(184, 29, 29);
+    border-style: solid;
+    border-color: rgb(184, 29, 29);
     font-size: x-large;
 }
 
