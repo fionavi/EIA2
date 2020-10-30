@@ -6,7 +6,9 @@ namespace L03_CocktailBar {
         let form: HTMLDivElement = <HTMLDivElement>document.querySelector("div#form");
         //let slider: HTMLInputElement = <HTMLInputElement>document.querySelector("input#amount");
 
-        form.addEventListener("change", handleChange);
+        document.querySelector("#fertig").addEventListener("click", handleChange);
+        //slider.addEventListener("input", displayAmount);
+        //form.addEventListener("change", handleChange);
         //document.querySelector("#fertig").addEventListener("click", handleChange);
         //slider.addEventListener("input", displayAmount);
     }

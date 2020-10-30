@@ -7,8 +7,8 @@ var L03_CocktailBar;
         console.log("Start");
         let form = document.querySelector("div#form");
         //let slider: HTMLInputElement = <HTMLInputElement>document.querySelector("input#amount");
-        form.addEventListener("change", handleChange);
-        //document.querySelector("#fertig").addEventListener("click", handleChange);
+        //form.addEventListener("change", handleChange);
+        document.querySelector("#fertig").addEventListener("click", handleChange);
         //slider.addEventListener("input", displayAmount);
     }
     function handleChange(_event) {
@@ -19,7 +19,7 @@ var L03_CocktailBar;
         console.log(inputs);
         let order = document.querySelector("div#order");
         order.innerHTML = "";
-        let formData = new FormData(document.forms[0]); //Formular (<form> - Tag) -> 0 ist falls es mehrere gibt, dass es 1. Formular wählt, alle Inhalte aus Formular werden ausgewählt
+        let formData = new FormData(document.forms[0]);
         for (let entry of formData) { // solange Einträge im Formular
             //debugger;
             let item = document.querySelector("[value='" + entry[1] + "']"); //item mitsamt Infos wird aufgegriffen bzw selektiert
@@ -31,13 +31,19 @@ var L03_CocktailBar;
             if (item != null && entry[0] == "Datalist") {
                 order.innerHTML += "Wirkung: " + entry[1] + "<br>";
             }
-            if (item != null && item.type == "range") {
-                order.innerHTML += "Zubereitung: " + item.value + " Stunden" + "<br>";
-            }
+            /*  if (item != null && item.type == "range") {
+                 order.innerHTML += "Zubereitung: " + item.value + " Stunden" + "<br>";
+ 
+             } */
             if (entry[0] == "Kessel" && item != null) {
                 let price = parseInt(item.getAttribute("price"));
                 order.innerHTML += entry[1] + "  Galleonen " + price + "<br>";
             }
+        }
+        let formData2 = new FormData(document.forms[1]); //Formular (<form> - Tag) -> 0 ist falls es mehrere gibt, dass es 1. Formular wählt, alle Inhalte aus Formular werden ausgewählt
+        for (let entry of formData) { // solange Einträge im Formular
+            //debugger;
+            let item = document.querySelector("[value='" + entry[1] + "']"); //item mitsamt Infos wird aufgegriffen bzw selektiert
             if (item != null && item.type == "checkbox") {
                 let mengenangabe = document.getElementById(item.name + "_anzahl").getAttribute("mengenangabe"); //Attribut mengenangabe vom elemnet mit id _anzahl wird aufgegriffen
                 let price = parseInt(item.getAttribute("price")); //string zu number geparsed, Attribute price wird rausgegriffen         price * parseInt(item.getElementById(item.name + "_anzahl").getAttribute("value")!)   geht nicht
@@ -53,11 +59,12 @@ var L03_CocktailBar;
                     order.innerHTML += "Den Trank " + document.getElementById(item.name).name + "<br>";
                 }
             }
-            if (item != null && entry[0] == "fest") {
+            /* if (item != null && entry[0] == "fest") {
+
                 order.innerHTML += "bis der Trank " + entry[1] + " ist " + "<br>";
-            }
+            } */
             if (item != null && item.type == "color") {
-                order.innerHTML += " und die Farbe " + document.getElementById(item.name).value + " bekommt." + "<br>";
+                order.innerHTML += " bis er die Farbe " + document.getElementById(item.name).value + " bekommt." + "<br>";
             }
             /* if (entry[0] == "Kessel" && item != null) {
    order.innerHTML += entry[1] + "  Galleonen " + price  + "<br>";

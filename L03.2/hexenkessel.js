@@ -6,7 +6,9 @@ var L03_CocktailBar;
         console.log("Start");
         let form = document.querySelector("div#form");
         //let slider: HTMLInputElement = <HTMLInputElement>document.querySelector("input#amount");
-        form.addEventListener("change", handleChange);
+        document.querySelector("#fertig").addEventListener("click", handleChange);
+        //slider.addEventListener("input", displayAmount);
+        //form.addEventListener("change", handleChange);
         //document.querySelector("#fertig").addEventListener("click", handleChange);
         //slider.addEventListener("input", displayAmount);
     }
@@ -73,4 +75,4 @@ var L03_CocktailBar;
     } */
     }
 })(L03_CocktailBar || (L03_CocktailBar = {}));
-//# sourceMappingURL=cocktail.js.map
+//# sourceMappingURL=hexenkessel.js.map
