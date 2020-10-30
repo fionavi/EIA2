@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Zaubertrank Rezept</title>
+	<!-- <link rel="stylesheet" href="zaubertrank.css" type="text/css" media="screen" /> -->
+	<script src="zauber.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+	<header>
+		<h1>Zaubertrank</h1>
+		<p>Erstelle ein Rezept.</p>
+	</header>
+
+	<form>
+		<div id="form">
+            <h2>Rezeptformular</h2>
+            
+         
+		                  
+            <fieldset>
+                <legend> Informationen </legend>
+                Name des Tranks
+                <input name="Name" type="text" id="Name"  placeholder="Name" required />
+                <hr />
+                Wirkung
+            <input type="text" name="Datalist" list="options" placeholder="Wirkung"/>
+            <datalist id="options">
+                <option value="Verwandlung"> </option>
+                <option value="Schrumpfen"> </option>
+                <option value="Wachsen"> </option>
+                <option value="Heilen"> </option>
+                <option value="Vergiften"> </option>
+                <option value="Wahrheitsserum"> </option>
+                <option value="Liebestrank"> </option>
+            </datalist>
+            <hr />
+                
+                Dauer der Zubereitung in Stunden
+                <input type="range" name="Slider" min="0" max="48" step="1" value="0" id="dauer"/>
+                
+             </fieldset>   
+              
+			<fieldset>
+				<legend>Gefäß</legend>
+                 <select name="Kessel" id="kessel">
+                    <option value="kleiner Kessel" price="25">kleiner Kessel</option>
+					<option value="mittlerer Kessel" price="30">mittlerer Kessel</option>
+                    <option value="großer Kessel" price="50">großer Kessel</option>
+                 </select> 
+            </fieldset> 
+            <fieldset id=ingredients>
+                <legend>Zutaten</legend>
+                    <div id="zutat1">
+                    <input type="checkbox" name="Haare" id="Haare" value="Haare" price="5">
+                    <label for="Haare">Haare</label>
+                    <input id="Haare_anzahl" type="number" name="Menge" step="1" min="0" max="100" value="0" mengenangabe="Stück" />
+                    </div>
+                    <div id="zutat2">
+                      <input type="checkbox" name="Spinnenbeine" id="Spinnenbeine" value="Spinnenbeine" price="10">
+                      <label for="Spinnenbeine">Spinnenbeine</label>
+                    <input id="Spinnenbeine_anzahl" type="number" name="Menge" step="1" min="0" max="100" value="0" mengenangabe="Stück"/>
+                  
+                    </div>
+                <div id="zutat3">
+                    <input type="checkbox" name="Alraunensaft" id="Alraunensaft" value="Alraunensaft" price="50">
+                    <label for="Alraunensaft">Alraunensaft</label>
+                    <input id="Alraunensaft_anzahl" type="number" name="Menge" step="1" min="0" max="100" value="0" mengenangabe="Stück" />
+                   
+                </div>
+                <div id="zutat4">
+                <input type="checkbox" name="Einhornstaub" id="Einhornstaub" value="Einhornstaub" price="500">
+                    <label for="Einhornstaub">Einhornstaub</label>
+                    <input id="Einhornstaub_anzahl" type="number" name="Menge" step="1" min="0" max="100" value="0" mengenangabe="Stück"/>
+                   
+                </div>
+                <div id="zutat5"></form>
+                    <input type="checkbox" name="Knochenmehl" id="Knochenmehl" value="Knochenmehl" price="250">
+                    <label for="Knochenmehl">Knochenmehl</label>
+                    <input id="Knochenmehl_anzahl" type="number" name="Menge" step="1" min="0" max="100" value="0" mengenangabe="Stück"/>
+                    
+                </div>
+                <div id="zutat6">
+                 <input type="checkbox" name="Drachenblut" id="Drachenblut" value="Drachenblut" price="700">
+                    <label for="Drachenblut">Drachenblut</label>
+                    <input  id="Drachenblut_anzahl" type="number" name="Menge" step="1" min="0" max="100" value="0" mengenangabe="Stück" />
+                   
+                 </div>
+                <div id="zutat7">
+                <input type="checkbox" name="Nachtschattenknolle" id="Nachtschattenknolle" value="Nachtschattenknolle" price="40">
+                    <label for="Nachtschattenknolle">Nachtschattenknolle</label>
+                    <input  id="Nachtschattenknolle_anzahl" type="number" name="Menge" step="1" min="0" max="100" value="0" mengenangabe="Stück"/>    
+                    
+                </div>    
+			</fieldset>	
+			<fieldset>
+                <legend>Temperatur</legend>
+                <input type="radio" name="abkühlen" id="abkühlen" value="abkühlen" class="temp" />
+				<label for="slim">abkühlen</label>
+				<input type="radio" name="erhitzen" id="erhitzen" value="erhitzen" class="temp" />
+                <label for="wide">erhitzen</label>
+                <br>
+                auf <input type="number" name="temperatur" id="temperatur" step="1" min="-500" max="500" value="0" /> °Celsius
+                <br>
+                bis der Trank
+                <select name="konsitenz1" id="konsistenz1" class="kons">
+                    <option value="flüssig">flüssig</option>
+                    <option value="zäh" selected>zäh</option>
+                    <option value="fest" selected>fest</option>,
+                    <br>
+                ist
+		
+            <br>
+            und bis die Farbe
+               <input type="color" name="color1" id="color1" placeholder="red" id="color1" value="#ff0000"> ist.
+        
+            </fieldset>
+            <fieldset>
+                <legend>Rühren</legend>
+                <input type="radio" name="langsam rühren" id="langsam rühren" value="langsam" class="rühren" />
+				<label for="langsam">langsam</label>
+				<input type="radio" name="schnell rühren" id="schnell rühren" value="schnell" class="rühren"/>
+                <label for="schnell">schnell</label>
+                <br>
+               bis der Trank
+                <select name="konsitenz2" id="konsistenz2" class="kons">
+                    <option value="flüssig">flüssig</option>
+                    <option value="zäh" selected>zäh</option>
+                    <option value="fest" selected>fest</option>
+                    <br>
+                
+	
+              <br>und <input type="color" name="color2" id="color2" placeholder="red" id="color" value="#ff0000"> ist.
+        
+            </fieldset>
+
+            
+            <button id="fertig">Rezept fertigstellen</button>
+        </div>
+        
+    </form>
+
+	
+	<div>
+		<h2>Dein Rezept</h2>
+		<div id="order">
+			...
+		</div>
+	</div>
+
+</body>
+
+</html>
