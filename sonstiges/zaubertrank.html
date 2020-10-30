@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Zaubertrankkunde</title>
+	<link rel="stylesheet" href="zaubertrank.css" type="text/css" media="screen" />
+	<script src="zaubertrank.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+	<header>
+		<h1>Dein Zaubertrank
+		<p>Erstelle ein Rezept für deinen Zaubertrank</p>
+	</header>
+
+	<form>
+
+		<div id="form">
+         <fieldset>
+            Name des Tranks
+            <input type="text" name="Text" placeholder="Name" required />
+            <hr />
+            Wirkung
+    	<input type="text" name="Datalist" list="options" placeholder="Wirkung"/>
+		<datalist id="options">
+			<option value="Verwandlung"> </option>
+			<option value="Schrumpfen"> </option>
+			<option value="Wachsen"> </option>
+			<option value="Heilen"> </option>
+			<option value="Vergiften"> </option>
+			<option value="Wahrheitsserum"> </option>
+			<option value="Liebestrank"> </option>
+        </datalist>
+        <hr />
+            <legend> Rezept </legend>
+            Dauer der Zubereitung in Stunden
+            <input type="range" name="Slider" min="0" max="48" step="1" value="0" />
+            <hr />
+            Zutaten
+            <input type="text" name="Datalist" list="options" placeholder="Zutaten"/>
+            <datalist id="options">
+                <option value="Haare"> </option>
+                <option value="Spinnenbeine"> </option>
+                <option value="Alraunensaft"> </option>
+                <option value="Einhornstaub"> </option>
+                <option value="Knochenmehl"> </option>
+                <option value="Drachenblut"> </option>
+                <option value="Nachtschattenknolle"> </option>
+            </datalist>
+            Menge
+            <input type="text" name="Pattern" pattern="[0-9]{3}" placeholder="Menge/Anzahl" />
+        <input type="radio" name="Radiogroup" value="radio1" id="radio1" />
+		<label for="radio1">Gramm</label>
+		<input type="radio" name="Radiogroup" value="radio2" id="radio2" />
+		<label for="radio2">Milli-Liter</label>
+		<input type="radio" name="Radiogroup" value="radio3" id="radio3" />
+		<label for="radio3">Stück</label>
+        <hr />
+        Temperatur
+        
+				<span id="slider">
+					<span>
+						-1000°C
+						<input type="range" name="Amount" id="amount" min="-1000" max="1000" step="1" value="1">
+                        -1000°C
+                    </span>
+					<progress min="-1000" max="1000" value="0.1" />
+                </span>
+                <br>
+            Dauer des Erhitzens / Abkühlens
+            <input type="range" name="Slider" min="0" max="48" step="1" value="0" />
+            Konsistenz
+            <select name="Select" id="select1">
+                <option value="option1">flüssig</option>
+                <option value="option2" selected>zäh</option>
+                <option value="option3" selected>fest</option>
+        <hr />
+        <br>
+                
+        
+        <p>Rühren</p>    
+
+            <p>Dauer des Rührens</p>
+            <input type="range" name="Slider" min="0" max="48" step="1" value="0" />
+            Konsistenz
+            <select name="Select" id="select2">
+                <option value="option1">flüssig</option>
+                <option value="option2" selected>zäh</option>
+                <option value="option3" selected>fest</option>
+
+
+
+
+			</fieldset>
+		</div>
+	</form>
+	
+	<div>
+    <fieldset>
+		<h2>Dein Zaubertrank</h2>
+		<div id="order">
+            hallo
+        </hr>
+        anzeigen
+        </div>
+    </fieldset>
+	</div>
+
+</body>
+
+</html>
+
+
+
+ // Versuch2 mit Cocktailcode
+
+
+ <legend>Wirkung</legend>
+ <input type="text" name="Datalist" list="options" placeholder="Wirkung"/>
+ <datalist id="options">
+     <option value="Verwandlung" price="25">Verwandlung</option>
+     <option value="Schrumpfen" price="25">Schrumpfen</option>
+     <option value="Wachsen" price="25">Wachsen</option>
+     <option value="Heilen" price="25">Heilen</option>
+     <option value="Vergiften" price="25">Vergiften</option>
+     <option value="Wahrheitsserum" price="25">Wahrheitsserum</option>
+     <option value="Liebestrank" price="25">Liebestrank</option>
+ </datalist>          
+<hr />
+<legend>Dauer der Zubereitung in Stunden</legend>
+ <input type="range" name="Slider" min="0" max="48" step="1" value="0" />
+ <hr />
+
+<legend>Zutaten</legend>
+ <input type="checkbox" name="Extra" id="Haare" value="Haare" price="0.50">
+ <label for="Haare">Haare</label>
+ <input type="checkbox" name="Extra" id="Spinnenbeine" value="Spinnenbeine" price="0.50">
+ <label for="Spinnenbeine">Spinnenbeine</label>
+ <input type="checkbox" name="Extra" id="Alraunensaft" value="Alraunensaft" price="0.20">
+ <label for="Alraunensaft">Alraunensaft</label>
+ <input type="checkbox" name="Extra" id="Einhornstaub" value="Einhornstaub" price="0.15">
+ <label for="Einhornstaub">Einhornstaub</label>
+ <input type="checkbox" name="Extra" id="Knochenmehl" value="Knochenmehl" price="0.30">
+ <label for="Knochenmehl">Knochenmehl</label>
+ <input type="checkbox" name="Extra" id="Drachenblut" value="Drachenblut" price="0.30">
+ <label for="Drachenblut">Drachenblut</label>
+ <input type="checkbox" name="Extra" id="Nachtschattenknolle" value="Nachtschattenknolle" price="0.30">
+ <label for="Nachtschattenknolle">Nachtschattenknolle</label>      
+ 
+</fieldset>

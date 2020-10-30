@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Meine Haushaltshilfe</h1>
+	<fieldset id="fsSelection">
+		<legend> Einkaufen </legend>
+		Produkte
+		<input type="text" name="Datalist" list="options" placeholder="Was brauchen Sie?"/>
+		<datalist id="options">
+			<option value="Butter"> </option>
+			<option value="Milch"> </option>
+			<option value="Mehl"> </option>
+			<option value="Nudeln"> </option>
+			<option value="Reis"> </option>
+			<option value="Tomaten"> </option>
+			<option value="Klopapier"> </option>
+        </datalist>
+        <hr>
+        Auf was müssen wir achten? <br>
+        <textarea name="Area" rows="3" placeholder="Allergien und sonstige Anmerkungen"></textarea>
+        <hr />
+        Wo sollen wir für Sie einkaufen?<br>
+		<input type="radio" name="Radiogroup" value="radio1" id="radio1" />
+		<label for="radio1">Lebensmittelmarkt</label>
+		<input type="radio" name="Radiogroup" value="radio2" id="radio2" />
+		<label for="radio2">Discounter</label>
+		<input type="radio" name="Radiogroup" value="radio3" id="radio3" />
+		<label for="radio3">Wochenmarkt</label>
+		
+	</fieldset>
+
+<br>
+	<fieldset id="fsSpecial">
+		<legend> Lieferung </legend>
+		Lieferdatum
+        <input type="date" name="Date"/>
+        <hr />
+        <legend> Wie können wir die Lieferung überbringen? </legend>
+		<input type="checkbox" name="Checkbox1" value="check1" id="check1" />
+		<label for="check1">Klingeln</label>
+		<input type="checkbox" name="Checkbox2" value="check2" id="check2" />
+		<label for="check2">Vor der Haustür abstellen</label>
+		<input type="checkbox" name="Checkbox3" value="check3" id="check3" />
+        <label for="check3">Ablageort nach Vereinbarung*</label>
+        <br><br>
+        Gewünschter Ablageort
+        <input type="text" name="Text" placeholder="Ablageort eingeben" required />
+    
+		<hr />
+		Adresse
+        <input type="text" name="Text" placeholder="Straße und Hausnummer" required />
+        <input type="text" name="Text" placeholder="Postleitzahl" required />
+        <input type="text" name="Text" placeholder="Adresszusatz" />
+        
+	</fieldset>
+
+    <br>
+   
+	<fieldset id="fsText">
+		<legend> Kontaktdaten </legend>
+        Anrede
+        <input type="radio" name="Radiogroup" value="radio1" id="radio1" />
+		<label for="radio1">Frau</label>
+		<input type="radio" name="Radiogroup" value="radio2" id="radio2" />
+		<label for="radio2">Herr</label>
+		<input type="radio" name="Radiogroup" value="radio3" id="radio3" />
+        <label for="radio3">Divers</label>
+        <hr />
+        Name
+        <input type="text" name="Text" placeholder="Name eingeben" required />
+        Vorname
+		<input type="text" name="Text" placeholder="Vorname eingeben" required />
+		<hr />
+		
+		Mail
+		<input type="email" name="Mail" placeholder="E-Mail eingeben" />
+		
+	</fieldset>
+
+</body>
+
+</html>

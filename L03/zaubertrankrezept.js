@@ -1,4 +1,5 @@
 "use strict";
+console.log("hallooooo");
 var L03_CocktailBar;
 (function (L03_CocktailBar) {
     window.addEventListener("load", handleLoad);
