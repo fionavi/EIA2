@@ -51,7 +51,8 @@ var L05_Hexenkessel;
             if (item != null && item.type == "checkbox") {
                 // let mengenangabe: string = document.getElementById(item.name + "_anzahl").getAttribute("mengenangabe")!; //Attribut mengenangabe vom elemnet mit id _anzahl wird aufgegriffen
                 let price = parseInt(item.getAttribute("price")); //string zu number geparsed, Attribute price wird rausgegriffen         price * parseInt(item.getElementById(item.name + "_anzahl").getAttribute("value")!)   geht nicht
-                anweisung.innerHTML += "Füge " /* + stepper.value */ + document.getElementById(item.name).value + " " + item.value + " hinzu" + " (" + price + "Galleonen)" + "<br>"; // schreibt in Rezept den Wert des Attributs mit id anzahl + mengenangabe + preis 
+                console.log(document.getElementById(item.id + "_stepper").value);
+                anweisung.innerHTML += "Füge " + document.getElementById(item.id + "_stepper").value + document.getElementById(item.name).value + " " + item.value + " hinzu" + " (" + price + "Galleonen)" + "<br>"; // schreibt in Rezept den Wert des Attributs mit id anzahl + mengenangabe + preis 
                 /* console.log((<HTMLInputElement>document.getElementById(item.getAttribute("id") + "_anzahl")).value);
                 console.log(document.getElementById(item.name + "_anzahl")); */
             }
@@ -85,10 +86,17 @@ var L05_Hexenkessel;
 })(L05_Hexenkessel || (L05_Hexenkessel = {}));
 async function submitToServer(_event) {
     // let formData: FormData = new FormData(form);
-    let formData = new FormData(document.querySelector("#f3"));
+    let formData = new FormData(document.forms[0]);
     let query = new URLSearchParams(formData);
-    await fetch("index.html?" + query.toString());
-    alert("Rezept gesendet");
+    let formData2 = new FormData(document.forms[1]);
+    let query2 = new URLSearchParams(formData2);
+    let url = "potion.html?" + query.toString() + "&" + query2.toString();
+    console.log(url);
+    let response = await fetch(url);
+    console.log(response);
+    alert("Dein Rezept wurde versendet.");
+    /*  await fetch("index.html?" + query.toString());
+     alert("Rezept gesendet"); */
     //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
 }
 //# sourceMappingURL=Hexenkessel5.js.map

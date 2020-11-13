@@ -38,7 +38,7 @@ var L05_Hexenkessel;
             let stepper = document.createElement("input");
             stepper.type = "number";
             stepper.name = _category;
-            stepper.id = item.name;
+            stepper.id = item.name + "_stepper";
             stepper.step = "1";
             stepper.min = "0";
             stepper.max = "100";

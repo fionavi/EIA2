@@ -66,14 +66,15 @@ namespace L05_Hexenkessel {
             //let stepper: HTMLInputElement = <HTMLInputElement>document.querySelector("[value='" + entry[0] + "']");
 
             if (item != null && item.type == "checkbox") {
-               // let mengenangabe: string = document.getElementById(item.name + "_anzahl").getAttribute("mengenangabe")!; //Attribut mengenangabe vom elemnet mit id _anzahl wird aufgegriffen
+                // let mengenangabe: string = document.getElementById(item.name + "_anzahl").getAttribute("mengenangabe")!; //Attribut mengenangabe vom elemnet mit id _anzahl wird aufgegriffen
                 let price: number = parseInt(item.getAttribute("price")!);                                                  //string zu number geparsed, Attribute price wird rausgegriffen         price * parseInt(item.getElementById(item.name + "_anzahl").getAttribute("value")!)   geht nicht
-                anweisung.innerHTML += "Füge " /* + stepper.value */ + (<HTMLInputElement>document.getElementById(item.name)).value + " "  + item.value + " hinzu" + " (" + price + "Galleonen)" + "<br>"; // schreibt in Rezept den Wert des Attributs mit id anzahl + mengenangabe + preis 
+                console.log((<HTMLInputElement>document.getElementById(item.id + "_stepper")).value);
+                anweisung.innerHTML += "Füge " + (<HTMLInputElement>document.getElementById(item.id + "_stepper")).value + (<HTMLInputElement>document.getElementById(item.name)).value + " " + item.value + " hinzu" + " (" + price + "Galleonen)" + "<br>"; // schreibt in Rezept den Wert des Attributs mit id anzahl + mengenangabe + preis 
                 /* console.log((<HTMLInputElement>document.getElementById(item.getAttribute("id") + "_anzahl")).value);
                 console.log(document.getElementById(item.name + "_anzahl")); */
             }
 
-                    }
+        }
 
     }
 
@@ -116,11 +117,20 @@ namespace L05_Hexenkessel {
 }
 
 async function submitToServer(_event: Event): Promise<void> {
-   // let formData: FormData = new FormData(form);
-    let formData: FormData = new FormData(document.querySelector("#f3"));
+    // let formData: FormData = new FormData(form);
+    let formData: FormData = new FormData(document.forms[0]);
     let query: URLSearchParams = new URLSearchParams(<any>formData);
-    await fetch("index.html?" + query.toString());
-    alert("Rezept gesendet");
+    let formData2: FormData = new FormData(document.forms[1]);
+    let query2: URLSearchParams = new URLSearchParams(<any>formData2);
     
+
+    let url: string = "potion.html?" + query.toString() + "&" + query2.toString();
+    console.log(url);
+    let response: Response = await fetch(url);
+    console.log(response);
+    alert("Dein Rezept wurde versendet.");
+    /*  await fetch("index.html?" + query.toString());
+     alert("Rezept gesendet"); */
+
     //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
 }
