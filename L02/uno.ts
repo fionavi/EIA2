@@ -2,7 +2,7 @@ window.addEventListener("load", function () {
 document.querySelector("#ziehstapel")?.addEventListener("click", createCard);
 document.querySelector("#ziehstapel")?.addEventListener("click", draw);
 document.querySelector("#ablagestapel")?.addEventListener("click", createFirstCard);
-document.querySelector(div.getAttribute("handkarte")?.addEventListener("click", playCard);
+//document.querySelector(div.getAttribute("handkarte")?.addEventListener("click", playCard));
 });
 
 let color: string[] = ["blue", "red", "yellow", "green"];

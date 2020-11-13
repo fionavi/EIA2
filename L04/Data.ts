@@ -3,7 +3,7 @@ namespace L04_Hexenkessel {
 export interface Item {
     name: string;
     price: number;
-    //stepper: boolean;
+    stepper: boolean;
 }
 
 export interface Data {
@@ -23,5 +23,4 @@ export let data: Data = {
 
 };
 
-}
 }

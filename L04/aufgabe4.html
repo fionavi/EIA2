@@ -62,36 +62,35 @@
                 <fieldset>
                 
                 <legend>Temperatur</legend>
-                <input type="radio" name="abkühlen" id="abkühlen" value="abkühlen" class="temp" />
+                <input type="radio" name="abbruch" id="abkühlen" value="abkühlen" class="temp" />
 				<label for="slim">abkühlen</label>
-				<input type="radio" name="erhitzen" id="erhitzen" value="erhitzen" class="temp" />
+				<input type="radio" name="abbruch" id="erhitzen" value="erhitzen" class="temp" />
                 <label for="wide">erhitzen</label>
                 <br>
                 auf <input type="number" name="temperatur" id="temperatur" step="1" min="-500" max="500" value="0" /> °Celsius
                 <br>
-                bis der Trank
+              <!--   bis der Trank
                 <input type="color" name="color1" id="color1" placeholder="red" id="color1" value="#ff0000"> ist.
-                
+                 -->
             </fieldset>
             <fieldset>
                 <legend>Rühren</legend>
-                <input type="radio" name="langsam rühren" id="langsam rühren" value="langsam" class="rühren" />
+                <input type="radio" name="rühren" id="langsam rühren" value="langsam" class="rühren" />
 				<label for="langsam">langsam</label>
-				<input type="radio" name="schnell rühren" id="schnell rühren" value="schnell" class="rühren"/>
+				<input type="radio" name="rühren" id="schnell rühren" value="schnell" class="rühren"/>
                 <label for="schnell">schnell</label>
                 <br>
-               bis der Trank
-               <!--  <select name="konsitenz2" id="konsistenz2" class="kons">
+               <!-- bis der Trank
+                <select name="konsitenz1" id="konsistenz1" class="kons">
                     <option value="flüssig">flüssig</option>
                     <option value="zäh" selected>zäh</option>
-                    <option value="fest" selected>fest</option>
+                    <option value="fest" selected>schäumend</option>,
                     <br>
-                 -->
-	
-              <input type="color" name="color2" id="color2" placeholder="red" id="color" value="#ff0000"> ist.
-        
+                    </select>
+                    ist. -->
             </fieldset>
-            <button type="button" id="abbruch">Anweisungen übernehmen</button>
+            <br>
+            <button type="button" id="abbruchbutton">Anweisungen übernehmen</button>
            </div> 
            
         </div>
@@ -101,9 +100,13 @@
 	
 	<div id="f3">
 		<h2>Dein Rezept</h2>
-		<div id="order">
+		<div id="info">
 			...
-		</div>
+        </div>
+        <div id="anweisung">
+		Anweisungen: <br> <br>
+        </div>
+        <button type="submit" id="submit">Rezept einreichen</button>
 	</div>
 
 </body>
