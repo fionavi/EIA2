@@ -1,9 +1,10 @@
-namespace L05_Hexenkessel {
+namespace L06_Hexenkessel {
     window.addEventListener("load", handleLoad);
+    
 
     async function handleLoad(_event: Event): Promise<void> {
         console.log("Start");
-        let response: Response = await fetch("Data5.json");
+        let response: Response = await fetch("Data6.json");
         let offer: string = await response.text();
         let data: Data = JSON.parse(offer);
 
@@ -117,22 +118,23 @@ namespace L05_Hexenkessel {
 
 
     async function submitToServer(_event: Event): Promise<void> {
-    // let formData: FormData = new FormData(form);
-    let formData: FormData = new FormData(document.forms[0]);
-    let query: URLSearchParams = new URLSearchParams(<any>formData);
-    let formData2: FormData = new FormData(document.forms[1]);
-    let query2: URLSearchParams = new URLSearchParams(<any>formData2);
-    
+        // let formData: FormData = new FormData(form);
+        let formData: FormData = new FormData(document.forms[0]);
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        let formData2: FormData = new FormData(document.forms[1]);
+        let query2: URLSearchParams = new URLSearchParams(<any>formData2);
 
-    let url: string = "potion.html?" + query.toString() + "&" + query2.toString();
-    console.log(url);
-    let response: Response = await fetch(url);
-    console.log(response);
-    alert("Dein Rezept wurde versendet.");
-    /*  await fetch("index.html?" + query.toString());
-     alert("Rezept gesendet"); */
+        let url: string = "http://localhost:5001";
+        //let url: string = "potion.html?" + query.toString() + "&" + query2.toString();
+        console.log(url);
+        let response: Response = await fetch(url + "?" + query.toString());
+        let responseText: string = await response.text();
+        console.log(response);
+       // alert("Dein Rezept wurde versendet.");
+        await fetch(url + "?" + query.toString());
+        alert("Response: " + responseText);
 
-    //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
+        //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
     }
 
 }

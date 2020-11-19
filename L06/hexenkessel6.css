@@ -1,0 +1,38 @@
+body {
+    background-color: darkslategrey;
+    color: silver;
+}
+
+header {
+    text-align: center;
+}
+#f1 {
+position: relative;
+width: 45%;
+}
+#f2 {
+    position: relative;
+    width: 45%;
+    }
+
+#f3 {
+    position: relative;
+    width: 30%;
+    height: 70%;
+    margin-top: -30%;
+    margin-right: 15%;
+    float: right;
+    background-color: grey;
+    }
+h2 {
+    text-align: center;
+}
+
+button {
+    background-color: grey;
+    color: honeydew;
+}
+
+button:hover {
+    background-color: black;
+}

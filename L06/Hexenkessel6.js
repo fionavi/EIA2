@@ -1,13 +1,13 @@
 "use strict";
-var L05_Hexenkessel;
-(function (L05_Hexenkessel) {
+var L06_Hexenkessel;
+(function (L06_Hexenkessel) {
     window.addEventListener("load", handleLoad);
     async function handleLoad(_event) {
         console.log("Start");
-        let response = await fetch("Data5.json");
+        let response = await fetch("Data6.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
-        L05_Hexenkessel.generateContent(data);
+        L06_Hexenkessel.generateContent(data);
         //let form: HTMLDivElement = <HTMLDivElement>document.querySelector("div#form");
         document.querySelector("#infos").addEventListener("click", handleInfos);
         document.querySelector("#zutaten").addEventListener("click", handleZutaten);
@@ -89,14 +89,16 @@ var L05_Hexenkessel;
         let query = new URLSearchParams(formData);
         let formData2 = new FormData(document.forms[1]);
         let query2 = new URLSearchParams(formData2);
-        let url = "potion.html?" + query.toString() + "&" + query2.toString();
+        let url = "http://localhost:5001";
+        //let url: string = "potion.html?" + query.toString() + "&" + query2.toString();
         console.log(url);
-        let response = await fetch(url);
+        let response = await fetch(url + "?" + query.toString());
+        let responseText = await response.text();
         console.log(response);
-        alert("Dein Rezept wurde versendet.");
-        /*  await fetch("index.html?" + query.toString());
-         alert("Rezept gesendet"); */
+        // alert("Dein Rezept wurde versendet.");
+        await fetch(url + "?" + query.toString());
+        alert("Response: " + responseText);
         //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
     }
-})(L05_Hexenkessel || (L05_Hexenkessel = {}));
-//# sourceMappingURL=Hexenkessel5.js.map
+})(L06_Hexenkessel || (L06_Hexenkessel = {}));
+//# sourceMappingURL=Hexenkessel6.js.map

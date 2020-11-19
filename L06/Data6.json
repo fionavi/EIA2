@@ -1,0 +1,12 @@
+{
+       "zutaten": [
+           {"name": "Spinnenbeine", "price": 10, "stepper": true},
+           {"name": "Haare", "price": 5, "stepper": true},
+           {"name": "Alraunensaft in Tropfen", "price": 20, "stepper": true},
+           {"name": "Einhornstaubkörner", "price": 100, "stepper": true},
+           {"name": "Drachenblut in Tropfen", "price": 500, "stepper": true},
+           {"name": "Froschknochen", "price": 30, "stepper": true},
+           {"name": "Nachtschattenknolle", "price": 20, "stepper": true}
+           
+       ]
+}    
