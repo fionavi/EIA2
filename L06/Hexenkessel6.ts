@@ -124,8 +124,8 @@ namespace L06_Hexenkessel {
         let formData2: FormData = new FormData(document.forms[1]);
         let query2: URLSearchParams = new URLSearchParams(<any>formData2);
 
-        let url: string = "http://localhost:5001";
-        //let url: string = "potion.html?" + query.toString() + "&" + query2.toString();
+        //let url: string = "http://localhost:5001";
+        let url: string = "https://sisyphusaufgabe.herokuapp.com/?" + query.toString() + "&" + query2.toString();
         console.log(url);
         let response: Response = await fetch(url + "?" + query.toString());
         let responseText: string = await response.text();
