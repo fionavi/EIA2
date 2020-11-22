@@ -23,7 +23,7 @@ namespace L06_Hexenkessel {
     function handleInfos(_event: Event): void {
         // console.log(_event);
         let kessel: HTMLSelectElement = <HTMLSelectElement>document.querySelector("#kessel");
-        // console.log(kessel.value + kessel);
+        console.log(kessel.value + kessel);
 
         let inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll("input");
         console.log(inputs);
