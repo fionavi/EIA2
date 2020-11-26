@@ -1,13 +1,13 @@
 "use strict";
-var L06_Hexenkessel;
-(function (L06_Hexenkessel) {
+var L07_Hexenkessel;
+(function (L07_Hexenkessel) {
     window.addEventListener("load", handleLoad);
     async function handleLoad(_event) {
         console.log("Start");
-        let response = await fetch("Data6.json");
+        let response = await fetch("Data7.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
-        L06_Hexenkessel.generateContent(data);
+        L07_Hexenkessel.generateContent(data);
         //let form: HTMLDivElement = <HTMLDivElement>document.querySelector("div#form");
         document.querySelector("#infos").addEventListener("click", handleInfos);
         document.querySelector("#zutaten").addEventListener("click", handleZutaten);
@@ -100,5 +100,5 @@ var L06_Hexenkessel;
         alert("Response: " + responseText);
         //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
     }
-})(L06_Hexenkessel || (L06_Hexenkessel = {}));
-//# sourceMappingURL=Hexenkessel6.js.map
+})(L07_Hexenkessel || (L07_Hexenkessel = {}));
+//# sourceMappingURL=hexenkessel7.js.map
