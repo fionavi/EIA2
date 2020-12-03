@@ -16,6 +16,7 @@ namespace L07_Hexenkessel {
         document.querySelector("#zutaten").addEventListener("click", handleZutaten);
         document.querySelector("#abbruchbutton").addEventListener("click", handleAbbruch);
         document.querySelector("#submit").addEventListener("click", submitToServer);
+        document.querySelector("#show").addEventListener("click", showAll);
 
 
     }
@@ -124,10 +125,12 @@ namespace L07_Hexenkessel {
         let formData2: FormData = new FormData(document.forms[1]);
         let query2: URLSearchParams = new URLSearchParams(<any>formData2);
 
-        //let url: string = "http://localhost:5001";
-        let url: string = "https://sisyphusaufgabe.herokuapp.com/?" + query.toString() + "&" + query2.toString();
+       // let url: string = "http://localhost:5001/";
+        let url: string = "https://sisyphusaufgabe.herokuapp.com/";
+        url += "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerText;
+  
         console.log(url);
-        let response: Response = await fetch(url + "?" + query.toString());
+        let response: Response = await fetch(url);
         let responseText: string = await response.text();
         console.log(response);
        // alert("Dein Rezept wurde versendet.");
@@ -137,4 +140,9 @@ namespace L07_Hexenkessel {
         //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
     }
 
+    function showAll(_event: Event): void {
+    console.log("show collections");
 }
+//url + "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerHTML
+
+//url += "&Action=" + document.getElementById("action")?.innerHTML;

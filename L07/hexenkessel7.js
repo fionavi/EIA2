@@ -13,6 +13,7 @@ var L07_Hexenkessel;
         document.querySelector("#zutaten").addEventListener("click", handleZutaten);
         document.querySelector("#abbruchbutton").addEventListener("click", handleAbbruch);
         document.querySelector("#submit").addEventListener("click", submitToServer);
+        document.querySelector("#show").addEventListener("click", showAll);
     }
     function handleInfos(_event) {
         // console.log(_event);
@@ -89,10 +90,11 @@ var L07_Hexenkessel;
         let query = new URLSearchParams(formData);
         let formData2 = new FormData(document.forms[1]);
         let query2 = new URLSearchParams(formData2);
-        //let url: string = "http://localhost:5001";
-        let url = "https://sisyphusaufgabe.herokuapp.com/?" + query.toString() + "&" + query2.toString();
+        // let url: string = "http://localhost:5001/";
+        let url = "https://sisyphusaufgabe.herokuapp.com/";
+        url += "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerText;
         console.log(url);
-        let response = await fetch(url + "?" + query.toString());
+        let response = await fetch(url);
         let responseText = await response.text();
         console.log(response);
         // alert("Dein Rezept wurde versendet.");
@@ -100,5 +102,12 @@ var L07_Hexenkessel;
         alert("Response: " + responseText);
         //let rezept: HTMLDivElement = <HTMLDivElement>document.querySelector("div#f3");
     }
+    function showAll(_event) {
+        console.log("show collections");
+    }
+    //url + "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerHTML
+    //url += "&Action=" + document.getElementById("action")?.innerHTML;
 })(L07_Hexenkessel || (L07_Hexenkessel = {}));
+//url + "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerHTML
+//url += "&Action=" + document.getElementById("action")?.innerHTML;
 //# sourceMappingURL=hexenkessel7.js.map
