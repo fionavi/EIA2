@@ -12,7 +12,9 @@ export namespace L07_Hexenkessel {
     if (port == undefined) {
         port = 5001;
     }
-    let databaseUrl: string = "mongodb+srv://FionaVirnich:FionaVirnich@eia2.l1pl8.mongodb.net/Hexenkessel7?retryWrites=true&w=majority";
+    //let databaseUrl: string = "mongodb+srv://FionaVirnich:FionaVirnich@eia2.l1pl8.mongodb.net/Hexenkessel7?retryWrites=true&w=majority";
+    let databaseUrl: string = "mongodb+srv://Snape:alohomora@eia2.l1pl8.mongodb.net/Hexenkessel7?retryWrites=true&w=majority";
+    
     //"mongodb://localhost:27017"
 
     startServer(port);
