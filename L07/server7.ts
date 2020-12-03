@@ -32,9 +32,11 @@ export namespace L07_Hexenkessel {
     }
 
     async function connectToDatabase(_url: string): Promise<void> {
+        console.log("Connected to Database");
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
+        console.log("Connected to Client");
         rezepte = mongoClient.db("Hexenkessel7").collection("Rezepte");
         console.log("Database connection", rezepte != undefined);
     }

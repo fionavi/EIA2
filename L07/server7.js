@@ -23,9 +23,11 @@ var L07_Hexenkessel;
         server.addListener("request", handleRequest);
     }
     async function connectToDatabase(_url) {
+        console.log("Connected to Database");
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
+        console.log("Connected to Client");
         rezepte = mongoClient.db("Hexenkessel7").collection("Rezepte");
         console.log("Database connection", rezepte != undefined);
     }
