@@ -106,8 +106,6 @@ var L07_Hexenkessel;
         console.log("show collections");
     }
     //url + "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerHTML
-    //url += "&Action=" + document.getElementById("action")?.innerHTML;
+    //url += "&Action=" + document.getElementById("action")?.innerHTML
 })(L07_Hexenkessel || (L07_Hexenkessel = {}));
-//url + "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerHTML
-//url += "&Action=" + document.getElementById("action")?.innerHTML;
 //# sourceMappingURL=hexenkessel7.js.map

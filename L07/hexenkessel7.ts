@@ -1,6 +1,6 @@
 namespace L07_Hexenkessel {
     window.addEventListener("load", handleLoad);
-    
+
 
     async function handleLoad(_event: Event): Promise<void> {
         console.log("Start");
@@ -125,15 +125,15 @@ namespace L07_Hexenkessel {
         let formData2: FormData = new FormData(document.forms[1]);
         let query2: URLSearchParams = new URLSearchParams(<any>formData2);
 
-       // let url: string = "http://localhost:5001/";
+        // let url: string = "http://localhost:5001/";
         let url: string = "https://sisyphusaufgabe.herokuapp.com/";
         url += "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerText;
-  
+
         console.log(url);
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         console.log(response);
-       // alert("Dein Rezept wurde versendet.");
+        // alert("Dein Rezept wurde versendet.");
         await fetch(url + "?" + query.toString());
         alert("Response: " + responseText);
 
@@ -141,8 +141,9 @@ namespace L07_Hexenkessel {
     }
 
     function showAll(_event: Event): void {
-    console.log("show collections");
-}
-//url + "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerHTML
+        console.log("show collections");
+    }
+    //url + "?" + query.toString() + "&Anweisungen=" + document.getElementById("anweisung")?.innerHTML
 
-//url += "&Action=" + document.getElementById("action")?.innerHTML;
+    //url += "&Action=" + document.getElementById("action")?.innerHTML
+}
