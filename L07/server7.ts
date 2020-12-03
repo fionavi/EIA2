@@ -4,7 +4,7 @@ import * as Mongo from "mongodb";
 
 export namespace L07_Hexenkessel {
     interface Rezept {
-        [type: string]: string | string[];
+        [type: string]: string | string[] | undefined;
     }
 
     let rezepte: Mongo.Collection;
