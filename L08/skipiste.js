@@ -18,8 +18,11 @@ var L08_Skipiste;
         drawCloud({ x: 70, y: 170 }, { x: 50, y: 25 });
         drawPiste();
         drawLift();
-        drawTrees({ x: 10, y: 300 }, { x: 25, y: 50 });
-        drawSkier();
+        drawTrees();
+        drawSkier({ x: 100, y: 100 });
+        drawSkier({ x: 50, y: 20 });
+        drawSkier({ x: -100, y: 200 });
+        drawSkier({ x: 100, y: -90 });
         drawSnow({ x: 300, y: 600 }, { x: 600, y: 600 });
     }
     function drawBackground() {
@@ -110,8 +113,8 @@ var L08_Skipiste;
         crc2.fill();
         crc2.stroke();
     }
-    function drawTrees(_position, _size) {
-        console.log("Tree is drawing", _position, _size);
+    function drawTrees() {
+        console.log("Trees are drawing");
         crc2.fillStyle = "darkgreen";
         crc2.strokeStyle = "green";
         crc2.beginPath();
@@ -198,8 +201,12 @@ var L08_Skipiste;
         crc2.fill();
         crc2.stroke();
     }
-    function drawSkier() {
-        console.log("skier is drawing");
+    function drawSkier(_position) {
+        console.log("skier is drawing", _position);
+        let colors = ["darkviolet", "midnightblue", "MediumSpringGreen", "CadetBlue", "DarkSlateGray"];
+        let randomcolor = colors[Math.floor(Math.random() * colors.length)];
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
         crc2.strokeStyle = "black";
         crc2.lineWidth = 3;
         crc2.beginPath();
@@ -213,14 +220,13 @@ var L08_Skipiste;
         crc2.lineTo(130, 360);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "red";
-        crc2.strokeStyle = "red";
+        crc2.fillStyle = randomcolor;
+        crc2.strokeStyle = crc2.fillStyle;
         crc2.beginPath();
         crc2.ellipse(150, 350, 11, 7, 10, 10, 99);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        crc2.strokeStyle = "red";
         crc2.lineWidth = 5;
         crc2.beginPath();
         crc2.moveTo(145, 345);
@@ -251,6 +257,7 @@ var L08_Skipiste;
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
+        crc2.restore();
     }
     function drawSnow(_position, _size) {
         console.log("Snowflake is drawing", _position, _size);
