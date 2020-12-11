@@ -299,9 +299,8 @@ namespace L08_Skipiste {
         crc2.fill();
         crc2.stroke();
 
-        crc2.fillStyle = "black";
-        crc2.fillStyle = "black";
-        crc2.strokeStyle = "";
+        crc2.fillStyle = randomcolor;
+        crc2.strokeStyle = crc2.fillStyle;
         crc2.lineWidth = 1;
         crc2.beginPath();
         crc2.ellipse(142, 334, 5, 4, 10, 10, 99);
