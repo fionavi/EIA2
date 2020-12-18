@@ -1,37 +1,9 @@
 namespace L09_Skipiste {
 
-    //window.addEventListener("load", handleload);
 
     export let crc2: CanvasRenderingContext2D;
     let skiers: Skier[] = [];
 
-
-    function handleload(_event: Event): void {
-
-        // let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
-        // if (!canvas) {
-        //     return;
-        // }
-        // console.log(canvas);
-        // crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
-        // console.log(crc2);
-
-
-        // console.log("Skier Path: ", skierPaths);
-
-        // let skier: Skier = new Skier(1);
-        // console.log(skier);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-    }
 
     interface Vector {
         x: number;
@@ -69,7 +41,6 @@ namespace L09_Skipiste {
         // drawSkier({ x: 100, y: -90 });
         createSkier(5);
 
-        debugger;
         window.setInterval(update, 20);
         //update(imgData);
 
@@ -305,22 +276,6 @@ namespace L09_Skipiste {
         crc2.stroke();
 
     }
-
-    // function drawSkier(_position: Vector): void {
-    //     let skier: Skier = new Skier(1);
-    //     console.log(skier);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-
-    // }
 
     function createSkier(_nSkier: number): void {
         console.log("Create Skiers");

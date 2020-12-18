@@ -1,30 +1,7 @@
 "use strict";
 var L09_Skipiste;
 (function (L09_Skipiste) {
-    //window.addEventListener("load", handleload);
     let skiers = [];
-    function handleload(_event) {
-        // let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
-        // if (!canvas) {
-        //     return;
-        // }
-        // console.log(canvas);
-        // crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
-        // console.log(crc2);
-        // console.log("Skier Path: ", skierPaths);
-        // let skier: Skier = new Skier(1);
-        // console.log(skier);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-        // skier.draw();
-        // skier.moveBy(0.1);
-    }
     window.addEventListener("load", handleload2);
     let golden = 0.62;
     let imgData;
@@ -50,7 +27,6 @@ var L09_Skipiste;
         // drawSkier({ x: -100, y: 200 });
         // drawSkier({ x: 100, y: -90 });
         createSkier(5);
-        debugger;
         window.setInterval(update, 20);
         //update(imgData);
     }
@@ -248,20 +224,6 @@ var L09_Skipiste;
         L09_Skipiste.crc2.fill();
         L09_Skipiste.crc2.stroke();
     }
-    // function drawSkier(_position: Vector): void {
-    //     let skier: Skier = new Skier(1);
-    //     console.log(skier);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    //     skier.draw();
-    //     skier.moveBy(0.1);
-    // }
     function createSkier(_nSkier) {
         console.log("Create Skiers");
         for (let i = 0; i < _nSkier; i++) {
