@@ -1,14 +1,49 @@
-namespace L08_Skipiste {
+namespace L09_Skipiste {
+
+    //window.addEventListener("load", handleload);
+
+    export let crc2: CanvasRenderingContext2D;
+    let skiers: Skier[] = [];
+
+
+    function handleload(_event: Event): void {
+
+        // let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
+        // if (!canvas) {
+        //     return;
+        // }
+        // console.log(canvas);
+        // crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+        // console.log(crc2);
+
+
+        // console.log("Skier Path: ", skierPaths);
+
+        // let skier: Skier = new Skier(1);
+        // console.log(skier);
+        // skier.draw();
+        // skier.moveBy(0.1);
+        // skier.draw();
+        // skier.moveBy(0.1);
+        // skier.draw();
+        // skier.moveBy(0.1);
+        // skier.draw();
+        // skier.moveBy(0.1);
+        // skier.draw();
+        // skier.moveBy(0.1);
+    }
 
     interface Vector {
         x: number;
         y: number;
     }
-    window.addEventListener("load", handleload);
-    let crc2: CanvasRenderingContext2D;
+    window.addEventListener("load", handleload2);
+
     let golden: number = 0.62;
 
-    function handleload(_event: Event): void {
+    let imgData: ImageData;
+
+    function handleload2(_event: Event): void {
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
         if (!canvas) {
             return;
@@ -25,11 +60,18 @@ namespace L08_Skipiste {
         drawPiste();
         drawLift();
         drawTrees();
-        drawSkier({ x: 100, y: 200 });
-        drawSkier({ x: 50, y: 20 });
-        drawSkier({ x: -100, y: 200 });
-        drawSkier({ x: 100, y: -90 });
         drawSnow({ x: 300, y: 600 }, { x: 600, y: 600 });
+        imgData = crc2.getImageData(0, 0, 300, 600);
+
+        // drawSkier({ x: 100, y: 200 });
+        // drawSkier({ x: 50, y: 20 });
+        // drawSkier({ x: -100, y: 200 });
+        // drawSkier({ x: 100, y: -90 });
+        createSkier(5);
+
+        debugger;
+        window.setInterval(update, 20);
+        //update(imgData);
 
     }
 
@@ -264,76 +306,35 @@ namespace L08_Skipiste {
 
     }
 
-    function drawSkier(_position: Vector): void {
+    // function drawSkier(_position: Vector): void {
+    //     let skier: Skier = new Skier(1);
+    //     console.log(skier);
+    //     skier.draw();
+    //     skier.moveBy(0.1);
+    //     skier.draw();
+    //     skier.moveBy(0.1);
+    //     skier.draw();
+    //     skier.moveBy(0.1);
+    //     skier.draw();
+    //     skier.moveBy(0.1);
+    //     skier.draw();
+    //     skier.moveBy(0.1);
 
-        console.log("skier is drawing", _position);
-        let colors: string[] = ["darkviolet", "midnightblue", "MediumSpringGreen", "CadetBlue", "DarkSlateGray"];
-        let randomcolor: string = colors[Math.floor(Math.random() * colors.length)];
+    // }
 
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
+    function createSkier(_nSkier: number): void {
+        console.log("Create Skiers");
+        for (let i: number = 0; i < _nSkier; i++) {
+            let x: number = Math.random() * (300 - 150) + 150;
+            let skier: Skier = new Skier(2.0, x, 400);
+            console.log("SKIER: " + skier);
+            skier.draw();
+            // skier.move();
+            skiers.push(skier);
+            // let imgData: ImageData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
+            // crc2.putImageData(imgData, crc2.canvas.width, crc2.canvas.height);
 
-        crc2.strokeStyle = "black";
-        crc2.lineWidth = 3;
-        crc2.beginPath();
-        crc2.moveTo(155, 360);
-        crc2.lineTo(130, 365);
-        crc2.closePath();
-        crc2.stroke();
-
-        crc2.strokeStyle = "black";
-        crc2.beginPath();
-        crc2.moveTo(155, 355);
-        crc2.lineTo(130, 360);
-        crc2.closePath();
-        crc2.stroke();
-
-        crc2.fillStyle = randomcolor;
-        crc2.strokeStyle = crc2.fillStyle;
-        crc2.beginPath();
-        crc2.ellipse(150, 350, 11, 7, 10, 10, 99);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.lineWidth = 5;
-        crc2.beginPath();
-        crc2.moveTo(145, 345);
-        crc2.lineTo(130, 347);
-        crc2.closePath();
-        crc2.stroke();
-
-        crc2.strokeStyle = "grey";
-        crc2.lineWidth = 2;
-        crc2.beginPath();
-        crc2.moveTo(130, 347);
-        crc2.lineTo(140, 370);
-        crc2.closePath();
-        crc2.stroke();
-
-
-        crc2.fillStyle = "Bisque";
-        crc2.strokeStyle = "grey";
-        crc2.lineWidth = 1;
-        crc2.beginPath();
-        crc2.ellipse(140, 336, 5, 5, 10, 10, 99);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.fillStyle = randomcolor;
-        crc2.strokeStyle = crc2.fillStyle;
-        crc2.lineWidth = 1;
-        crc2.beginPath();
-        crc2.ellipse(142, 334, 5, 4, 10, 10, 99);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-
-
-        crc2.restore();
-
+        }
     }
 
     function drawSnow(_position: Vector, _size: Vector): void {
@@ -366,5 +367,15 @@ namespace L08_Skipiste {
 
     }
 
-}
+    function update(): void {
+        console.log("Update");
+        crc2.putImageData(imgData, 0, 0);
 
+        for (let skier of skiers) {
+            skier.move(1 / 50);
+            skier.draw();
+        }
+
+    }
+
+}
