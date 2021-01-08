@@ -15,23 +15,8 @@ namespace L10_Skipiste {
 
         move(_timeslice: number): void {
             console.log("Skier move");
-            let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-
-            if (this.position.x < 200) {
-                this.position.x += 100;
-            }
-            if (this.position.y < 200) {
-                this.position.y == 10;
-            }
-            if (this.position.x > 300) {
-                this.position.x == 300;
-            }
-            if (this.position.y > crc2.canvas.height) {
-                this.position.y -= 100;
-            }
-
+            super.move(_timeslice);
+            
         }
 
         draw(): void {
@@ -39,9 +24,7 @@ namespace L10_Skipiste {
             //crc2.save();
 
             console.log("skier is drawing", this.position);
-            let colors: string[] = ["darkviolet", "midnightblue", "MediumSpringGreen", "CadetBlue", "DarkSlateGray"];
-            let randomcolor: string = colors[Math.floor(Math.random() * colors.length)];
-
+            
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
 // X 130 => x 0;  y 365
