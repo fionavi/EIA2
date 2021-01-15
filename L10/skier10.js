@@ -11,28 +11,12 @@ var L10_Skipiste;
         }
         move(_timeslice) {
             console.log("Skier move");
-            let offset = new L10_Skipiste.Vector(this.velocity.x, this.velocity.y);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-            if (this.position.x < 200) {
-                this.position.x += 100;
-            }
-            if (this.position.y < 200) {
-                this.position.y == 10;
-            }
-            if (this.position.x > 300) {
-                this.position.x == 300;
-            }
-            if (this.position.y > L10_Skipiste.crc2.canvas.height) {
-                this.position.y -= 100;
-            }
+            super.move(_timeslice);
         }
         draw() {
             console.log("Skier draw");
             //crc2.save();
             console.log("skier is drawing", this.position);
-            let colors = ["darkviolet", "midnightblue", "MediumSpringGreen", "CadetBlue", "DarkSlateGray"];
-            let randomcolor = colors[Math.floor(Math.random() * colors.length)];
             L10_Skipiste.crc2.save();
             L10_Skipiste.crc2.translate(this.position.x, this.position.y);
             // X 130 => x 0;  y 365
