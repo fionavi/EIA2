@@ -1,10 +1,7 @@
 namespace L11_Skipiste {
 
     export class Lift extends Moveable {
-        position: Vector;
-        velocity: Vector;
-        type: number;
-
+        
         constructor(_position: number, _x?: number, _y?: number) {
             super(_position);
             console.log("LIFT CONSTRUCTOR");

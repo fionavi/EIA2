@@ -3,7 +3,7 @@ var L11_Skipiste;
 (function (L11_Skipiste) {
     let moveables = [];
     window.addEventListener("load", handleload2);
-    window.addEventListener("click", clickSkier);
+    // window.addEventListener("click", clickSkier);
     let golden = 0.62;
     let imgData;
     function handleload2(_event) {
@@ -250,18 +250,24 @@ var L11_Skipiste;
             moveable.draw();
         }
     }
-    function clickSkier(event, _position) {
-        var cX = event.clientX;
-        var sX = event.screenX;
-        var cY = event.clientY;
-        var sY = event.screenY;
-        var coords1 = "client - X: " + cX + ", Y coords: " + cY;
-        var coords2 = "screen - X: " + sX + ", Y coords: " + sY;
-        document.getElementById("demo").innerHTML = coords1 + "<br>" + coords2;
-        let mouse = ;
-        let skier = ;
-        if (mousePosition == skier(_position)) {
-        }
-    }
+    // function clickSkier(event, _position): void {
+    //     // var cX: Event = event.clientX;
+    //     // var sX: Event = event.screenX;
+    //     // var cY: Event = event.clientY;
+    //     // var sY: Event = event.screenY;
+    //     // var coords1: string = "client - X: " + cX + ", Y coords: " + cY;
+    //     // var coords2: string = "screen - X: " + sX + ", Y coords: " + sY;
+    //     // document.getElementById("demo").innerHTML = coords1 + "<br>" + coords2;
+    //     let mouse: MouseEvent = ;
+    //     let skier: Skier = ;
+    //     let isClicked: boolean = false;
+    //     if (mousePosition == skier(_position)) {
+    //     isClicked = true;
+    //     console.log("Skier fell down");
+    //     isClicked = false;
+    //     //setTimeout
+    //     super skier.move
+    //     }
+    // }
 })(L11_Skipiste || (L11_Skipiste = {}));
 //# sourceMappingURL=main11.js.map

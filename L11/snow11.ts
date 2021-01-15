@@ -1,8 +1,7 @@
 namespace L11_Skipiste {
 
     export class Snow extends Moveable {
-        position: Vector;
-        velocity: Vector;
+       
 
 
         constructor(_position: number, _x?: number, _y?: number) {

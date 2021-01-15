@@ -11,7 +11,7 @@ namespace L11_Skipiste {
     }
     window.addEventListener("load", handleload2);
 
-    window.addEventListener("click", clickSkier);
+   // window.addEventListener("click", clickSkier);
 
     let golden: number = 0.62;
 
@@ -322,22 +322,28 @@ namespace L11_Skipiste {
 
 
 
-    function clickSkier(event, _position): void {
-        var cX: Event = event.clientX;
-        var sX: Event = event.screenX;
-        var cY: Event = event.clientY;
-        var sY: Event = event.screenY;
-        var coords1: string = "client - X: " + cX + ", Y coords: " + cY;
-        var coords2: string = "screen - X: " + sX + ", Y coords: " + sY;
-        document.getElementById("demo").innerHTML = coords1 + "<br>" + coords2;
+    // function clickSkier(event, _position): void {
+    //     // var cX: Event = event.clientX;
+    //     // var sX: Event = event.screenX;
+    //     // var cY: Event = event.clientY;
+    //     // var sY: Event = event.screenY;
+    //     // var coords1: string = "client - X: " + cX + ", Y coords: " + cY;
+    //     // var coords2: string = "screen - X: " + sX + ", Y coords: " + sY;
+    //     // document.getElementById("demo").innerHTML = coords1 + "<br>" + coords2;
 
 
 
-        let mouse: MouseEvent = ;
-        let skier: Skier = ;
-        if (mousePosition == skier(_position)) {
+    //     let mouse: MouseEvent = ;
+    //     let skier: Skier = ;
+    //     let isClicked: boolean = false;
 
-        }
-    }
+    //     if (mousePosition == skier(_position)) {
+    //     isClicked = true;
+    //     console.log("Skier fell down");
+    //     isClicked = false;
+    //     //setTimeout
+    //     super skier.move
+    //     }
+    // }
 
 }
