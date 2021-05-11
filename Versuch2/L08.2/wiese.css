@@ -1,7 +1,15 @@
+body {
+    background-color: black;
+    color: lavender;
+}
 
+h1 {
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
 
 canvas{
-  float: left;
+  float: center;
   width: 100%; /* The width is 50%, by default */
 }
 
