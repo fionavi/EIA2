@@ -19,7 +19,7 @@ namespace L08_Skipiste {
 
 
         drawBackground();
-        drawSun({ x: 50, y: 25 });
+        drawSun({ x: 300, y: 50 });
         drawCloud({ x: 190, y: 75 }, { x: 50, y: 25 });
         drawCloud({ x: 70, y: 170 }, { x: 50, y: 25 });
         drawPiste();
@@ -52,7 +52,7 @@ namespace L08_Skipiste {
 
         let r1: number = 30;
         let r2: number = 80;
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 100, r1, 0, 0, r2);
 
         gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
         gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0)");
