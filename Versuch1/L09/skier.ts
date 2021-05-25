@@ -9,7 +9,7 @@ namespace L09_Skipiste {
             console.log("SKIER CONSTRUCTOR");
             this.position = new Vector(_x, _y);
             this.velocity = new Vector(0, 0);
-            this.velocity.random(100, 150,);
+            this.velocity.random(100, 150);
         }
 
         move(_timeslice: number): void {
@@ -22,10 +22,10 @@ namespace L09_Skipiste {
                 this.position.x += 100;
             }
             if (this.position.y < 200) {
-                this.position.y == 10;
+                this.position.y = 10;
             }
             if (this.position.x > 300) {
-                this.position.x == 300;
+                this.position.x = 300;
             }
             if (this.position.y > crc2.canvas.height) {
                 this.position.y -= 100;

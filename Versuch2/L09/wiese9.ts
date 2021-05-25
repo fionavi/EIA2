@@ -1,4 +1,4 @@
-namespace L08 {
+namespace L09 {
 
     interface Vector {
         x: number;

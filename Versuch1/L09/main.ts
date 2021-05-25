@@ -306,7 +306,7 @@ namespace L09_Skipiste {
 
 
         crc2.save();
-        crc2.translate(_position.x, _position.y);
+        crc2.translate(_position.x, _position.y); 
         crc2.fillStyle = gradient;
 
         for (let drawn: number = 0; drawn < nParticles; drawn++) {
