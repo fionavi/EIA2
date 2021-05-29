@@ -115,7 +115,7 @@ namespace L08 {
         crc2.beginPath();
         crc2.moveTo(0, 0);
         crc2.bezierCurveTo(Math.floor(Math.random() * 500), Math.floor(Math.random() * 500), 100, 550, 300, Math.floor(Math.random() * 20));
-        crc2.bezierCurveTo(Math.floor(Math.random() * 500), Math.floor(Math.random() * 500), 10, 50, 500, 500;
+        crc2.bezierCurveTo(Math.floor(Math.random() * 500), Math.floor(Math.random() * 500), 10, 50, 500, 500);
         crc2.strokeStyle = "white";
         crc2.stroke();
     }

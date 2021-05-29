@@ -1,18 +1,31 @@
 namespace L09 {
 
+
+    export let crc2: CanvasRenderingContext2D;
+    let bees: Bee[] = [];
+
+    let clouds: Cloud[] = [];
+
+
     interface Vector {
         x: number;
         y: number;
     }
+
     window.addEventListener("load", handleload);
-    let crc2: CanvasRenderingContext2D;
+    //let crc2: CanvasRenderingContext2D;
     let golden: number = 0.62;
+    let imgData: ImageData;
+    console.log("start");
+
+
 
     function handleload(_event: Event): void {
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
         if (!canvas) {
             return;
         }
+
         console.log(canvas);
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         console.log(crc2);
@@ -21,14 +34,17 @@ namespace L09 {
         drawBackground();
 
         drawSun({ x: 300, y: 10 });
-        drawCloud({ x: 100, y: 100 }, { x: 100, y: 50 });
-        drawCloud({ x: 170, y: 200 }, { x: 100, y: 50 });
-        drawMountains();
+       /*  drawCloud({ x: 100, y: 100 }, { x: 100, y: 50 });
+        drawCloud({ x: 170, y: 200 }, { x: 100, y: 50 });*/
+
+        drawCloud({ x: 100, y: 100 });
+        drawMountains(); 
         drawLawn();
-        drawBee({ x: 0, y: 110 });
-        drawBee({ x: 20, y: 310 });
-        drawBee({ x: -100, y: 400 });
-        drawBee({ x: -130, y: 180 });
+        drawBee(10);
+        /*  drawBee({ x: 0, y: 110 });
+         drawBee({ x: 20, y: 310 });
+         drawBee({ x: -100, y: 400 });
+         drawBee({ x: -130, y: 180 }); */
 
         drawDaisy({ x: -20, y: 420 });
         drawTulip({ x: 60, y: 300 });
@@ -40,12 +56,11 @@ namespace L09 {
 
         drawTrees();
         drawBeeStock();
-
-        
-
-
+        imgData = crc2.getImageData(0, 0, 360, 640);
+        window.setInterval(update, 20);
 
     }
+
 
     function drawBackground(): void {
         console.log("Background is drawing");
@@ -62,53 +77,22 @@ namespace L09 {
 
     }
 
-    function drawBee(_position: Vector): void {
+    function drawBee(_nBee: number): void {
 
-        console.log("Bee is drawing", _position);
+        console.log("Create Bees");
+        for (let i: number = 0; i < _nBee; i++) {
+            let x: number = Math.random() * (300 - 150) + 150;
+            let bee: Bee = new Bee(2.0, x, 400);
+            console.log("BEE: " + bee);
+            bee.draw();
+            bee.move(3);
+            bees.push(bee);
+            // let imgData: ImageData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
+            // crc2.putImageData(imgData, crc2.canvas.width, crc2.canvas.height);
 
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-
-        crc2.fillStyle = "white";
-        crc2.beginPath();
-        crc2.ellipse(210, 80, 10, 15, 10, 20, 40);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.ellipse(200, 80, 10, 15, 0, 20, 40);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-
-        let pattern: CanvasRenderingContext2D = document.createElement("canvas").getContext("2d");
-        pattern.canvas.width = 20;
-        pattern.canvas.height = 20;
-
-        pattern.fillStyle = "black";
-        pattern.strokeStyle = "gold";
-        pattern.lineWidth = 5;
-        pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
-        pattern.moveTo(0, 0);
-        pattern.lineTo(0, 20);
-        pattern.moveTo(10, 0);
-        pattern.lineTo(10, 20);
-        pattern.moveTo(20, 0);
-        pattern.lineTo(20, 20);
-        pattern.stroke();
-
-        crc2.fillStyle = crc2.createPattern(pattern.canvas, "repeat");
-     
-
-        crc2.beginPath();
-        crc2.ellipse(200, 100, 10, 15, 30, 20, 40);
-        crc2.closePath();
-        crc2.fill();
-
-        crc2.restore();
-
+        }
     }
+
 
     function drawHortensia(_position: Vector): void {
 
@@ -279,31 +263,16 @@ namespace L09 {
 
     }
 
-    function drawCloud(_position: Vector, _size: Vector): void {
-        console.log("Cloud is drawing", _position, _size);
+    function drawCloud(_position: Vector): void {
+        console.log("Create Clouds", _position);
 
-        let nParticles: number = 75;
-        let radiusParticle: number = 15;
-        let particle: Path2D = new Path2D();
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
-
-        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradient.addColorStop(0, "HSLA(60, 100%, 90%, 0.7)");
-        gradient.addColorStop(0, "HSLA(60, 100%, 100%, 0.3)");
-
-
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.fillStyle = gradient;
-
-        for (let drawn: number = 0; drawn < nParticles; drawn++) {
-            crc2.save();
-            let x: number = (Math.random() - 0.5) * _size.x;
-            let y: number = - (Math.random() * _size.y);
-            crc2.translate(x, y);
-            crc2.fill(particle);
-            crc2.restore();
-        }
+        let cloud: Cloud = new Cloud(_position.x, _position.y);
+        console.log("CLOUD: " + cloud);
+        cloud.draw();
+        cloud.move(3);
+        clouds.push(cloud);
+        // let imgData: ImageData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
+        // crc2.putImageData(imgData, crc2.canvas.width, crc2.canvas.height);
 
         crc2.restore();
 
@@ -522,9 +491,21 @@ namespace L09 {
     }
 
 
+    function update(): void {
+        console.log("Update");
+        crc2.putImageData(imgData, 0, 0);
+
+        for (let bee of bees) {
+            bee.move(1 / 50);
+            bee.draw();
+        }
+
+        for (let cloud of clouds) {
+            cloud.move(1 / 50);
+            cloud .draw();
+        }
 
 
 
-
+    }
 }
-
